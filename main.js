@@ -18,6 +18,7 @@ $(document).ready(function () {
       dataType: "json",
       success: function (data, text, xhr) {
         console.log(xhr);
+        console.log(data);
       },
       error: function (xhr, status, err) {
         console.log(xhr);

@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+header("Content-Type:appication/json");
 
 $id = $_POST['id'];
 $kolicina = 1;
@@ -31,5 +32,18 @@ if (empty($_SESSION['cart'])) {
 }
 
 
-echo json_encode($_SESSION['cart']);
+
+
+$nizSaObjektima = $_SESSION['cart'];
+// var_dump($nizSaObjektima);
+$func = function ($product) {
+    // var_dump($product);
+    return $product['id'];
+};
+$nizIds = array_map($func, $nizSaObjektima);
+// var_dump($nizIds);
+$stringIds = implode(',', $nizIds);
+var_dump($stringIds);
+
+// echo json_encode($_SESSION['cart']);
 // session_destroy();
